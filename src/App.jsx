@@ -1,12 +1,21 @@
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import './App.css'
+import SearchBar from './components/SearchBar'
+import ListOfArticles from './components/ListOfArticles'
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [input,setInput] = useState('');
+  const [name, setName] = useState('');
+
+  useEffect(() => {
+    console.log(name)
+  },[name]);
 
   return (
     <>
-      beans
+      <SearchBar input={input} setInput={setInput} setName={setName}/>
+      <ListOfArticles />
     </>
   )
 }
