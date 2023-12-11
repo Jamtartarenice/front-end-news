@@ -1,6 +1,10 @@
 .InListOfArticles {
   display: grid;
   grid-template-columns: auto;
+  grid-template-rows: auto auto;
+  grid-template-areas: 
+  "Title DateOfPost"
+  "VotesOfPost";
   padding: 10px;
   border-radius: 15px;
   border-style: solid;
