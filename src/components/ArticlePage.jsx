@@ -3,6 +3,7 @@ import { useState ,useEffect } from "react";
 import { useParams } from 'react-router-dom'
 import formatDate from "../utils/FormatDates";
 import Comments from "./Comments";
+import Votes from "./Votes"
 
 const ArticlePage = () => {
     const [article,setArticle] = useState({});
@@ -21,7 +22,7 @@ const ArticlePage = () => {
         <h2>{article.title}</h2>
         <p>{article.body}</p>
         <p>made by {article.author} at {formatDate(article.created_at)}</p>
-        <p>{article.votes} votes</p>
+        <Votes article_vote={article.votes} article_id={article.article_id}/>
         </div>
         <Comments />
     </>
