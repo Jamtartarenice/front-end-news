@@ -1,12 +1,12 @@
 import { useState } from "react";
 
-const Loading = (children) => {
-    const loading = children.children.props.children.length
+const Loading = ({children}) => {
+    const loading = children.length
 
     if(loading === 0) 
     return <p>Loading...</p>
     else
-    return children.children.props.children
+    return children
 };
 
 export default Loading;
