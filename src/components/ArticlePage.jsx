@@ -1,4 +1,4 @@
-import getAnArticle from "../utils/getAnArticle";
+import getArticleByID from "../utils/getArticleByID";
 import { useState ,useEffect } from "react";
 import Loading from "./Loading";
 import { useParams } from 'react-router-dom'
@@ -10,7 +10,7 @@ const ArticlePage = () => {
     const  {article_id} = useParams();
 
     useEffect(() => {
-        getAnArticle(setArticle, article_id * 1);
+        getArticleByID(setArticle, article_id);
     },[]);
 
     return <Loading>
@@ -18,6 +18,7 @@ const ArticlePage = () => {
         <h2>{article.title}</h2>
         <p>{article.body}</p>
         <p>made by {article.author} at {formatDate(article.created_at)}</p>
+        <p>votes {article.votes}</p>
         </div>
         <Comments />
     </Loading>
