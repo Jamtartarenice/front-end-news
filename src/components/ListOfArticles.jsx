@@ -1,17 +1,20 @@
 import getArticles from "../utils/getArticles";
 import { useState ,useEffect} from "react";
-import Loading from "./Loading";
 import formatDate from "../utils/FormatDates";
 import { Link } from 'react-router-dom'
 
 const ListOfArticles = () => {
     const [articles,setArticles] = useState([]);
+    const [isLoading,setIsLoading] = useState(true);
 
     useEffect(() => {
         getArticles(setArticles)
+        setIsLoading(true);
     },[]);
     
-    return <Loading>
+    if(isLoading) return <p>Loading Articles...</p>
+    else
+    return <>
         <ul>
             {articles.map(article => <li className='InListOfArticles' key={article.article_id}>
                 <Link to={`/article/${article.article_id}`}>
@@ -21,7 +24,7 @@ const ListOfArticles = () => {
                 </Link>
                 </li> )}
         </ul>
-    </Loading>
+    </>
 };
 
 export default ListOfArticles;

@@ -1,10 +1,10 @@
 import getComments from "../utils/getCommentsByID";
 import { useState ,useEffect } from "react";
-import Loading from "./Loading";
 import { useParams } from 'react-router-dom'
 import formatDate from "../utils/FormatDates";
 
 const CommentSection = () => {
+    const [isLoading,setIsLoading] = useState(true);
     const [comments,setComments] = useState([]);
     const  {article_id} = useParams();
 
@@ -12,10 +12,13 @@ const CommentSection = () => {
         getComments(article_id)
         .then(data => {
             setComments(data)
+            setIsLoading(false);
         });
     },[]);
 
-    return <Loading>
+    if(isLoading) return <p>Loading Comments...</p>
+    else
+    return <>
         <div className="commentSection">
             <p>     There are {comments.length} comments</p>
             <ul>
@@ -25,7 +28,7 @@ const CommentSection = () => {
                 </li>)}
             </ul>
         </div>
-    </Loading>
+    </>
 };
 
 export default CommentSection;

@@ -15,7 +15,7 @@ const ArticlePage = () => {
         setIsLoading(false);
     },[]);
 
-    if(isLoading) return <p>Loading...</p>
+    if(isLoading) return <p>Loading Article Page</p>
     else
     return <>
         <div className="singleArticle">
