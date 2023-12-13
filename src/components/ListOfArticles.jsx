@@ -9,7 +9,7 @@ const ListOfArticles = () => {
 
     useEffect(() => {
         getArticles(setArticles)
-        setIsLoading(true);
+        setIsLoading(false);
     },[]);
     
     if(isLoading) return <p>Loading Articles...</p>
