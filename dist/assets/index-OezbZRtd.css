@@ -1,0 +1,1 @@
+.InListOfArticles{display:grid;grid-template-columns:auto;grid-template-rows:auto auto;grid-template-areas:"Title DateOfPost" "VotesOfPost";padding:10px;border-radius:15px;border-style:solid;border-color:#000;margin:5vw}ul{padding:0}.singleArticle,.comment{border-radius:15px;border-style:solid;border-color:#000;margin:5vw;padding:10px}.LikeButton{width:50px}
